@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<environments default="development">
+		<environment id="development">
+			<!-- 配置事务的管理方式 -->
+			<transactionManager type="JDBC"/>
+			<!-- 连接池的连接信息,POOLED代表采用mybatis提供的连接池 -->
+			<dataSource type="com.neuedu.util.DruidFactory">
+				<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://localhost:3306/empdemo"/>
+				<property name="username" value="root"/>
+				<property name="password" value="1234"/>
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- 告诉mybatis我们写的关于sql语句的xml都在哪 -->
+	<mappers>
+		<package name="com.neuedu.dao"/>
+	</mappers>
+
+</configuration>
+  
+
